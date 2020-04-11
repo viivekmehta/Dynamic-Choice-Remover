@@ -9,23 +9,38 @@ var xmlBuilder = new xml2js.Builder();
 var Busboy = require('busboy');
 var archiver = require('archiver');
 const app = express()
+app.set('view engine','ejs');
 const port = process.env.PORT || 3005
 var jsonBodyParser = bodyParser.json();
 app.use(bodyParser.json())
 app.use(cors());
-var formidable = require('formidable');
-var jsonDataFromXMLFile, uploadedFileName, choicesToRemove;
-
 
 app.get('/', (req, res) => {
+	const zipPath = __dirname + '/update.zip';
+    fs.access(zipPath, fs.F_OK, (err) => {
+      if (!err) {
+        console.log("deleting the update.zip folder from server if exists!!");
+        fs.unlinkSync(zipPath);
+      }
+    });
     res.sendFile(path.join(__dirname + '/home.html'));
 });
 
 
 app.post('/home', (req, res) => {
+	const zipPath = __dirname + '/update.zip';
+    fs.access(zipPath, fs.F_OK, (err) => {
+      if (!err) {
+        console.log("deleting the update.zip folder now from server!!");
+		fs.unlinkSync(zipPath);
+      }
+    });
     res.sendFile(path.join(__dirname + '/home.html'));
 });
 
+app.post('/downloadZip', (req, res) => {
+	res.download(__dirname + '/update.zip', "update.zip");
+});
 
 app.post('/folderupload', (req, res) => {
 	global.dynamicChoicesRemovedFromFiles = [];
@@ -75,51 +90,16 @@ app.post('/folderupload', (req, res) => {
         archive.finalize();
         output.on('close', function() {
             console.log("so deleted choices are ==> "+JSON.stringify(dynamicChoicesRemovedFromFiles));
-			res.download(outputFilePath, "update.zip", function(err) {
-				if(!err) {
-					fs.unlinkSync(outputFilePath);
-				}
-			});
+            if(dynamicChoicesRemovedFromFiles && dynamicChoicesRemovedFromFiles.length > 0) {
+                res.render('showRemovedChoicesAndActions',{dynamicChoicesRemovedFromFiles : dynamicChoicesRemovedFromFiles});
+            } else {
+                res.sendFile(path.join(__dirname + '/noChoices.html'));
+            }
+
         });
     });
     req.pipe(busboy);
 });
-
-
-app.post('/fileupload', (req, res) => {
-    var form = new formidable.IncomingForm();
-    var pathOfFile = null;
-    form.parse(req, function(err, fields, files) {
-        pathOfFile = files.fileUploaded.path;
-        uploadedFileName = files.fileUploaded.name;
-        var uploadedFile = fs.readFileSync(pathOfFile, 'UTF-8');
-        xml2jsConverter(uploadedFile, function(err, result) {
-            var newXMLFile = removeDynamicChoicesFromFile(result);
-			if(newXMLFile) {
-
-				 /* Downloading the new xml file */
-
-                res.setHeader('Content-disposition', "attachment; filename=" + uploadedFileName);
-                res.setHeader('Content-type', 'application/xml');
-                res.charset = 'UTF-8';
-                res.write(newXMLFile);
-                res.end();
-
-                /* Downloading the new xml file completed */
-			} else {
-				res.sendFile(path.join(__dirname + '/noChoices.html'));
-			}
-        })
-    });
-});
-
-
-Array.prototype.contains = function(needle) {
-    for (i in this) {
-        if (this[i] == needle) return true;
-    }
-    return false;
-}
 
 
 function removeDynamicChoicesFromFile(result) {
@@ -200,6 +180,13 @@ function removeDynamicChoicesFromFile(result) {
     } else {
         return null;
     }
+}
+
+Array.prototype.contains = function(needle) {
+    for (i in this) {
+        if (this[i] == needle) return true;
+    }
+    return false;
 }
 
 app.listen(port, "0.0.0.0", () => console.log(`Example app listening on port ${port}!`));

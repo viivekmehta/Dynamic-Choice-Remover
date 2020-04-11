@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9c68267-2d69-4d5b-bfb5-2efc4c2e4e2a" name="Default Changelist" comment="" />
+    <list default="true" id="d9c68267-2d69-4d5b-bfb5-2efc4c2e4e2a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/benchmark-2020-01-29_xeon-x3440.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/file.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/incoming_form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/json_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/multipart_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/octet_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/lib/querystring_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/formidable/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remover.js" beforeDir="false" afterPath="$PROJECT_DIR$/remover.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -61,10 +81,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1586580017885">
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1586609935071">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586580017885" />
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586609935071" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1586500663448">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
