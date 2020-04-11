@@ -39,7 +39,15 @@ app.post('/home', (req, res) => {
 });
 
 app.post('/downloadZip', (req, res) => {
-	res.download(__dirname + '/update.zip', "update.zip");
+	const zipPath = __dirname + '/update.zip';
+    fs.access(zipPath, fs.F_OK, (err) => {
+      if (!err) {
+        console.log("downloading the update.zip folder from server!!");
+		res.download(zipPath, "update.zip");
+      } else {
+        res.sendFile(path.join(__dirname + '/nothingToDownload.html'));
+      }
+    });
 });
 
 app.post('/folderupload', (req, res) => {
