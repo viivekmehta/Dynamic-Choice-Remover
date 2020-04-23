@@ -155,7 +155,6 @@ function removeDynamicChoicesFromFile(result) {
 
 
     /* Removing the dynamic sys_choice */
-	console.log("the labels are  ==> "+JSON.stringify(dynamicChoicesLabels)+" and sys id of action ==> "+result.record_update.sys_hub_action_type_definition[0].sys_id);
     if (dynamicChoicesInternalNames && dynamicChoicesInternalNames.length > 0) {
         var choices = [];
         for (dynamicChoiceInternalName of dynamicChoicesInternalNames) {

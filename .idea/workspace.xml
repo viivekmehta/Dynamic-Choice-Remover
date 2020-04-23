@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9c68267-2d69-4d5b-bfb5-2efc4c2e4e2a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noChoices.html" beforeDir="false" afterPath="$PROJECT_DIR$/noChoices.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/showRemovedChoicesAndActions.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/showRemovedChoicesAndActions.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remover.js" beforeDir="false" afterPath="$PROJECT_DIR$/remover.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +67,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1586609935071">
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1587634907813">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586609935071" />
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1587634907813" />
+    <state x="519" y="372" key="com.intellij.ide.util.TipDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1586758348153" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1586500663448">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
