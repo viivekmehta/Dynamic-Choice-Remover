@@ -122,7 +122,7 @@ function removeDynamicChoicesFromFile(result) {
         result.record_update.sys_hub_action_input_action_instance.map(function(element) {
             if (element.action_input) {
                 element.action_input.map(function(elementIn) {
-                    if ((elementIn._) && !(sysIdsOfDynamicChoices.contains(elementIn._))) {
+                    if ((elementIn._) && !( sysIdsOfDynamicChoices.indexOf(elementIn._) > -1 )) {
                         sysIdsOfDynamicChoices.push(elementIn._);
                     }
                 });
@@ -139,8 +139,7 @@ function removeDynamicChoicesFromFile(result) {
         sysIdsOfDynamicChoices.map(function(sysIdOfDynamicChoice) {
             if (result.record_update.sys_hub_action_input) {
                 result.record_update.sys_hub_action_input.map(function(action_inputs) {
-                    if ((action_inputs.element) && ((action_inputs.sys_id) == sysIdOfDynamicChoice) && !(dynamicChoicesInternalNames.contains((
-                            action_inputs.element).toString()))) {
+                    if ((action_inputs.element) && ((action_inputs.sys_id) == sysIdOfDynamicChoice) && !( dynamicChoicesInternalNames.indexOf((action_inputs.element).toString()) > -1 )) {
                         dynamicChoicesInternalNames.push((action_inputs.element).toString());
                         dynamicChoicesLabels[action_inputs.element] = (action_inputs.label).toString();
                     }
@@ -164,7 +163,7 @@ function removeDynamicChoicesFromFile(result) {
 	                            if ((element.$.field) && (((element.$.field).toLowerCase()) == dynamicChoiceInternalName)) {
 	                                fileLabel = (result.record_update.sys_hub_action_type_definition[0].sys_name).toString();
 	                                fileName = (result.record_update.sys_hub_action_type_definition[0].internal_name).toString();
-	                                if(!(choices.contains(dynamicChoicesLabels[dynamicChoiceInternalName]))) {
+	                                if(!( choices.indexOf(dynamicChoicesLabels[dynamicChoiceInternalName]) > -1 )) {
 	                                    choices.push(dynamicChoicesLabels[dynamicChoiceInternalName]);
 	                                }
 	                                console.log("deleting ==> " + dynamicChoiceInternalName + " , " + (element.$.field).toLowerCase() + " , index ==> " + index);
@@ -187,13 +186,6 @@ function removeDynamicChoicesFromFile(result) {
     } else {
         return null;
     }
-}
-
-Array.prototype.contains = function(needle) {
-    for (i in this) {
-        if (this[i] == needle) return true;
-    }
-    return false;
 }
 
 app.listen(port, "0.0.0.0", () => console.log(`Example app listening on port ${port}!`));
